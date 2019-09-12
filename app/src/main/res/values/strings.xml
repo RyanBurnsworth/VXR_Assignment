@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">VXR Assignment</string>
+    <string name="generator_button_text">Generate a Random String</string>
+</resources>
