@@ -12,23 +12,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val randomWordListArray = arrayListOf<String>()
+
+        val glView = GL2JNIView(baseContext)
+        surface_view.addView(glView)
+
         val recyclerView = recycler_view
         val adapter = RandomWordListAdapter(randomWordListArray)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
+
         button_string_generator.setOnClickListener {
-            val randomSentence = generateRandomString()
+            val wrapper = VXRLibWrapper()
+            val randomSentence = wrapper.generateRandomString()
             randomWordListArray.add(randomSentence)
             adapter.updateWordList(randomWordListArray)
             recyclerView.scrollToPosition(randomWordListArray.size - 1)
-        }
-    }
-
-    private external fun generateRandomString(): String
-
-    companion object {
-        init {
-            System.loadLibrary("vxrlib")
         }
     }
 }
