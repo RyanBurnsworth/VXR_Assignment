@@ -117,10 +117,10 @@ bool setupGraphics(int w, int h) {
     return true;
 }
 
-const GLfloat gTriangleVertices[] = {0.0f, 0.0f, -0.5f, -0.5f, 0.5f, -0.5f};
+const GLfloat gTriangleVertices[] = {0.0F, 0.0F, -0.5F, -0.5F, 0.5F, -0.5F};
 
 void renderFrame() {
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glClearColor(0.0F, 0.0F, 0.0F, 0.0F);
     checkGlError("glClearColor");
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     checkGlError("glClear");
